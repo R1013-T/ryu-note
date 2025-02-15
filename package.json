@@ -11,8 +11,10 @@
     "lint:markup": "markuplint \"./src/**/*.{jsx,tsx}\""
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@tailwindcss/postcss": "^4.0.0",
     "justd-icons": "^1.10.24",
+    "motion": "^12.4.3",
     "next": "15.2.0-canary.27",
     "react": "19.0.0",
     "react-aria-components": "^1.6.0",

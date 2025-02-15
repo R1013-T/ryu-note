@@ -1,8 +1,8 @@
 {
-  "ui": "src/shared/ui/generated",
-  "utils": "src/shared/utils",
+  "ui": "src/common/components/generated",
+  "utils": "src/utils",
   "gray": "zinc",
-  "css": "src/app/globals.css",
+  "css": "src/globals.css",
   "alias": "~",
   "language": "typescript",
   "$schema": "https://getjustd.com/schema.json"

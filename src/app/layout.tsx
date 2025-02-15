@@ -1,18 +1,8 @@
 /* eslint-disable node/prefer-global/process */
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { LINESeedJP } from '~/common/fonts'
 import { Providers } from '~/common/providers'
 import '~/globals.css'
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-})
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -25,17 +15,19 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         {process.env.NODE_ENV !== 'production' && (
           <script src="https://unpkg.com/react-scan/dist/auto.global.js" async />
         )}
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${LINESeedJP.className} antialiased`}
       >
         <Providers>
-          {children}
+          <main>
+            {children}
+          </main>
         </Providers>
       </body>
     </html>

@@ -87,7 +87,7 @@
         --navbar: oklch(84.63% 0.0137 102.05);
         --navbar-fg: oklch(16.96% 0.0017 17.32);
 
-        --sidebar: oklch(84.63% 0.0137 102.05);
+        --sidebar: oklch(99.01% 0.0161 95.22);
         --sidebar-fg: oklch(16.96% 0.0017 17.32);
 
         --chart-1: oklch(56.37% 0.1612 349.8);
@@ -113,19 +113,19 @@
         --secondary: oklch(53.75% 0.0078 97.45);
         --secondary-fg: oklch(95.37% 0.0147 98.29);
 
-        --overlay: oklch(77.21% 0.0128 96.47);
+        --overlay: oklch(16.96% 0.0017 17.32);
         --overlay-fg: oklch(99.01% 0.0161 95.22);
 
         --muted: oklch(77.21% 0.0128 96.47);
         --muted-fg: oklch(95.37% 0.0147 98.29);
 
-        --border: oklch(84.63% 0.0137 102.05);
+        --border: oklch(53.75% 0.0078 97.45);
         --input: oklch(84.63% 0.0137 102.05);
 
         --navbar: oklch(53.75% 0.0078 97.45);
         --navbar-fg: oklch(99.01% 0.0161 95.22);
 
-        --sidebar: oklch(53.75% 0.0078 97.45);
+        --sidebar: oklch(16.96% 0.0017 17.32);
         --sidebar-fg: oklch(99.01% 0.0161 95.22);
     }
 }
