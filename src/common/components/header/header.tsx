@@ -1,12 +1,12 @@
-import { SidebarTrigger } from 'ui'
 import Image from 'next/image'
+import { SidebarTrigger } from 'ui'
 
-type Props = {
+interface Props {
   readonly title?: string
   readonly imageUrl?: string
 }
 
-export default function Header({title = 'RYU Note', imageUrl}: Props) {
+export default function Header({ title = 'RYU Note', imageUrl }: Props) {
   return (
     <header className="flex h-12 w-full items-center justify-between border-b bg-sidebar px-4">
       <SidebarTrigger className="-ml-2 md:hidden" />

@@ -1,6 +1,8 @@
 'use client'
 
 import { IconArrowUpRight, IconBrandJustd, IconFolderFill, IconFolderOpen } from 'justd-icons'
+import { usePathname } from 'next/navigation'
+
 import {
   Sidebar,
   SidebarContent,
@@ -12,11 +14,9 @@ import {
   SidebarLabel,
   SidebarRail,
 } from 'ui'
-
+import { cn } from '~/utils/classes'
 import { folders } from '../../../constant/folders'
 import { SidebarHeader } from './sidebar-header'
-import { usePathname } from 'next/navigation'
-import { cn } from '~/utils/classes'
 
 export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -51,7 +51,7 @@ function SidebarTree({ item, index }: { item: (typeof folders)[number], index: n
         href={item.href ?? `/${item.id}`}
         target={item.href ? '_blank' : undefined}
       >
-        <SidebarLabel className='flex items-center gap-1'>
+        <SidebarLabel className="flex items-center gap-1">
           <IconBrandJustd />
           {item.label}
           {item.href && <IconArrowUpRight />}

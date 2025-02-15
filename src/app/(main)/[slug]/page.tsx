@@ -8,7 +8,7 @@ export default async function Page({
   const slug = (await params).slug
   return (
     <div>
-      <Header title={slug} imageUrl='' />
+      <Header title={slug} imageUrl="" />
       {slug}
     </div>
   )
