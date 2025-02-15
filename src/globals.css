@@ -53,23 +53,32 @@
 
 @layer base {
     :root {
-        --bg: oklch(99.01% 0.0161 95.22);
-        --fg: oklch(16.96% 0.0017 17.32);
+        --bg: var(--color-white);
+		--fg: var(--color-zinc-950);
 
+        --secondary: var(--color-zinc-100);
+		--secondary-fg: var(--color-zinc-950);
+
+		--overlay: var(--color-white);
+		--overlay-fg: var(--color-zinc-950);
+
+        --muted: var(--color-zinc-100);
+		--muted-fg: var(--color-zinc-600);
+
+        --border: var(--color-zinc-200);
+		--input: var(--color-zinc-300);
+
+		--navbar: var(--color-zinc-50);
+		--navbar-fg: var(--color-zinc-950);
+
+		--sidebar: var(--color-zinc-50);
+		--sidebar-fg: var(--color-zinc-950);
+        
         --primary: oklch(49.54% 0.1614 349.76);
         --primary-fg: oklch(99.01% 0.0161 95.22);
 
-        --secondary: oklch(95.37% 0.0147 98.29);
-        --secondary-fg: oklch(16.96% 0.0017 17.32);
-
-        --overlay: oklch(99.01% 0.0161 95.22);
-        --overlay-fg: oklch(16.96% 0.0017 17.32);
-
         --accent: oklch(49.54% 0.1614 349.76);
         --accent-fg: oklch(99.01% 0.0161 95.22);
-
-        --muted: oklch(84.63% 0.0137 102.05);
-        --muted-fg: oklch(53.75% 0.0078 97.45);
 
         --success: oklch(55.93% 0.1335 122.92);
         --success-fg: oklch(99.01% 0.0161 95.22);
@@ -80,15 +89,7 @@
         --danger: oklch(50.42% 0.1648 27.84);
         --danger-fg: oklch(93.12% 0.037 43.08);
 
-        --border: oklch(91.74% 0.0149 98.3);
-        --input: oklch(91.74% 0.0149 98.3);
         --ring: oklch(49.54% 0.1614 349.76);
-
-        --navbar: oklch(84.63% 0.0137 102.05);
-        --navbar-fg: oklch(16.96% 0.0017 17.32);
-
-        --sidebar: oklch(99.01% 0.0161 95.22);
-        --sidebar-fg: oklch(16.96% 0.0017 17.32);
 
         --chart-1: oklch(56.37% 0.1612 349.8);
         --chart-2: oklch(63.48% 0.1565 350.47);
@@ -106,6 +107,72 @@
         --radius-4xl: calc(var(--radius-lg) * 3);
     }
 
+    .light {
+        --bg: var(--color-white);
+		--fg: var(--color-zinc-950);
+
+        --secondary: var(--color-zinc-100);
+		--secondary-fg: var(--color-zinc-950);
+
+		--overlay: var(--color-white);
+		--overlay-fg: var(--color-zinc-950);
+
+        --muted: var(--color-zinc-100);
+		--muted-fg: var(--color-zinc-600);
+
+        --border: var(--color-zinc-200);
+		--input: var(--color-zinc-300);
+
+		--navbar: var(--color-zinc-50);
+		--navbar-fg: var(--color-zinc-950);
+
+		--sidebar: var(--color-zinc-50);
+		--sidebar-fg: var(--color-zinc-950);
+    }
+    .sand {
+        --bg: oklch(99.01% 0.0161 95.22);
+        --fg: oklch(16.96% 0.0017 17.32);
+
+        --secondary: oklch(95.37% 0.0147 98.29);
+        --secondary-fg: oklch(16.96% 0.0017 17.32);
+
+        --overlay: oklch(99.01% 0.0161 95.22);
+        --overlay-fg: oklch(16.96% 0.0017 17.32);
+
+        --muted: oklch(84.63% 0.0137 102.05);
+        --muted-fg: oklch(53.75% 0.0078 97.45);
+
+        --border: oklch(91.74% 0.0149 98.3);
+        --input: oklch(91.74% 0.0149 98.3);
+
+        --navbar: oklch(84.63% 0.0137 102.05);
+        --navbar-fg: oklch(16.96% 0.0017 17.32);
+
+        --sidebar: oklch(99.01% 0.0161 95.22);
+        --sidebar-fg: oklch(16.96% 0.0017 17.32);
+    }
+    .gray {
+        --bg: #272A3B;
+        --fg: #F7F7F7;
+
+        --secondary: #736A86;
+        --secondary-fg: #C8CED6;
+
+        --overlay: #272A3B;
+        --overlay-fg: #F7F7F7;
+
+        --muted: #736A86;
+        --muted-fg: #C8CED6;
+
+        --border: #D4CAC5;
+        --input: #272A3B;
+
+        --navbar: #736A86;
+        --navbar-fg: #F7F7F7;
+
+        --sidebar: #736A86;
+        --sidebar-fg: #F7F7F7;
+    }
     .dark {
         --bg: oklch(16.96% 0.0017 17.32);
         --fg: oklch(99.01% 0.0161 95.22);
@@ -130,6 +197,36 @@
     }
 }
 
+@variant light {
+    &:where(.light, .light *) {
+        @slot;
+    }
+    @media (prefers-color-scheme: light) {
+        &:where(.system, .system *) {
+            @slot;
+        }
+    }
+}
+@variant sand {
+    &:where(.sand, .sand *) {
+        @slot;
+    }
+    @media (prefers-color-scheme: sand) {
+        &:where(.system, .system *) {
+            @slot;
+        }
+    }
+}
+@variant gray {
+    &:where(.gray, .gray *) {
+        @slot;
+    }
+    @media (prefers-color-scheme: gray) {
+        &:where(.system, .system *) {
+            @slot;
+        }
+    }
+}
 @variant dark {
     &:where(.dark, .dark *) {
         @slot;
@@ -142,15 +239,20 @@
 }
 
 :root {
-    color-scheme: light dark;
-}
-
-.dark {
-    color-scheme: dark;
+    color-scheme: light dark sand gray;
 }
 
 .light {
     color-scheme: light;
+}
+.sand {
+    color-scheme: sand;
+}
+.gray {
+    color-scheme: gray;
+}
+.dark {
+    color-scheme: dark;
 }
 
 @layer base {

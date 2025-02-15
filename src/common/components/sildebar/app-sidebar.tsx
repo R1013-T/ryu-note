@@ -1,6 +1,6 @@
 'use client'
 
-import { IconArrowUpRight, IconBrandJustd, IconFolderFill, IconFolderOpen } from 'justd-icons'
+import { IconArrowUpRight, IconFolderFill, IconFolderOpen, IconLink } from 'justd-icons'
 import { usePathname } from 'next/navigation'
 
 import {
@@ -13,6 +13,7 @@ import {
   SidebarItem,
   SidebarLabel,
   SidebarRail,
+  Tooltip,
 } from 'ui'
 import { cn } from '~/utils/classes'
 import { folders } from '../../../constant/folders'
@@ -36,7 +37,8 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
 
 function SidebarTree({ item, index }: { item: (typeof folders)[number], index: number }) {
   const pathname = usePathname()
-  const isCurrent = pathname === `/${item.id}`
+  const lang = pathname.split('/')[1]
+  const isCurrent = pathname.startsWith(`/${lang}/${item.id}`)
 
   if (!item.files || item.files.length === 0) {
     return (
@@ -48,12 +50,26 @@ function SidebarTree({ item, index }: { item: (typeof folders)[number], index: n
             '--nested-level': index,
           } as React.CSSProperties
         }
-        href={item.href ?? `/${item.id}`}
+        href={item.href ?? `/${lang}/${item.id}`}
         target={item.href ? '_blank' : undefined}
       >
         <SidebarLabel className="flex items-center gap-1">
-          <IconBrandJustd />
-          {item.label}
+          <Tooltip delay={0}>
+            <Tooltip.Trigger
+              className="truncate"
+            >
+              {item.label[lang as keyof typeof item.label]}
+            </Tooltip.Trigger>
+            <Tooltip.Content placement="right">
+              {item.label[lang as keyof typeof item.label]}
+              {item.href && (
+                <a className="flex items-center gap-1 text-xs text-fg/80" href={item.href} target="_blank">
+                  <IconLink />
+                  {item.href}
+                </a>
+              )}
+            </Tooltip.Content>
+          </Tooltip>
           {item.href && <IconArrowUpRight />}
         </SidebarLabel>
       </SidebarItem>
@@ -61,7 +77,7 @@ function SidebarTree({ item, index }: { item: (typeof folders)[number], index: n
   }
 
   return (
-    <SidebarDisclosureGroup defaultExpandedKeys={['blog', 'tutorials', 'utils']}>
+    <SidebarDisclosureGroup defaultExpandedKeys={['blog', 'tech', 'tutorials', 'utils']}>
       <SidebarDisclosure id={item.id}>
         {({ isExpanded }) => (
           <>
@@ -74,7 +90,7 @@ function SidebarTree({ item, index }: { item: (typeof folders)[number], index: n
               }
             >
               {isExpanded ? <IconFolderOpen /> : <IconFolderFill />}
-              <SidebarLabel>{item.label}</SidebarLabel>
+              <SidebarLabel>{item.label[lang as keyof typeof item.label]}</SidebarLabel>
             </SidebarDisclosureTrigger>
             <SidebarDisclosurePanel>
               {item.files!.map(child => (
