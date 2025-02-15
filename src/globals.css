@@ -1,0 +1,183 @@
+@import "tailwindcss";
+@plugin 'tailwindcss-animate';
+@plugin 'tailwindcss-react-aria-components';
+
+@theme {
+    --font-mono: var(--font-geist), "ui-monospace", "SFMono-Regular", "Menlo",
+        "Monaco", "Consolas", '"Liberation Mono"', '"Courier New"', "monospace";
+
+    --color-border: var(--border);
+    --color-input: var(--input);
+
+    --color-ring: var(--ring);
+
+    --color-bg: var(--bg);
+    --color-fg: var(--fg);
+
+    --color-primary: var(--primary);
+    --color-primary-fg: var(--primary-fg);
+
+    --color-secondary: var(--secondary);
+    --color-secondary-fg: var(--secondary-fg);
+
+    --color-accent: var(--accent);
+    --color-accent-fg: var(--accent-fg);
+
+    --color-success: var(--success);
+    --color-success-fg: var(--success-fg);
+
+    --color-danger: var(--danger);
+    --color-danger-fg: var(--danger-fg);
+
+    --color-warning: var(--warning);
+    --color-warning-fg: var(--warning-fg);
+
+    --color-muted: var(--muted);
+    --color-muted-fg: var(--muted-fg);
+
+    --color-overlay: var(--overlay);
+    --color-overlay-fg: var(--overlay-fg);
+
+    --color-navbar: var(--navbar);
+    --color-navbar-fg: var(--navbar-fg);
+
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-fg: var(--sidebar-fg);
+
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+}
+
+@layer base {
+    :root {
+        --bg: oklch(99.01% 0.0161 95.22);
+        --fg: oklch(16.96% 0.0017 17.32);
+
+        --primary: oklch(49.54% 0.1614 349.76);
+        --primary-fg: oklch(99.01% 0.0161 95.22);
+
+        --secondary: oklch(95.37% 0.0147 98.29);
+        --secondary-fg: oklch(16.96% 0.0017 17.32);
+
+        --overlay: oklch(84.63% 0.0137 102.05);
+        --overlay-fg: oklch(16.96% 0.0017 17.32);
+
+        --accent: oklch(49.54% 0.1614 349.76);
+        --accent-fg: oklch(99.01% 0.0161 95.22);
+
+        --muted: oklch(84.63% 0.0137 102.05);
+        --muted-fg: oklch(53.75% 0.0078 97.45);
+
+        --success: oklch(55.93% 0.1335 122.92);
+        --success-fg: oklch(99.01% 0.0161 95.22);
+
+        --warning: oklch(56.65% 0.1523 45.02);
+        --warning-fg: oklch(94.09% 0.0422 68.42);
+
+        --danger: oklch(50.42% 0.1648 27.84);
+        --danger-fg: oklch(93.12% 0.037 43.08);
+
+        --border: oklch(91.74% 0.0149 98.3);
+        --input: oklch(91.74% 0.0149 98.3);
+        --ring: oklch(49.54% 0.1614 349.76);
+
+        --navbar: oklch(84.63% 0.0137 102.05);
+        --navbar-fg: oklch(16.96% 0.0017 17.32);
+
+        --sidebar: oklch(84.63% 0.0137 102.05);
+        --sidebar-fg: oklch(16.96% 0.0017 17.32);
+
+        --chart-1: oklch(56.37% 0.1612 349.8);
+        --chart-2: oklch(63.48% 0.1565 350.47);
+        --chart-3: oklch(71.55% 0.1356 354.63);
+        --chart-4: oklch(80.51% 0.1012 355.47);
+        --chart-5: oklch(89.62% 0.0525 1.83);
+
+        --radius-lg: 0.5rem;
+        --radius-xs: calc(var(--radius-lg) * 0.5);
+        --radius-sm: calc(var(--radius-lg) * 0.75);
+        --radius-md: calc(var(--radius-lg) * 0.9);
+        --radius-xl: calc(var(--radius-lg) * 1.25);
+        --radius-2xl: calc(var(--radius-lg) * 1.5);
+        --radius-3xl: calc(var(--radius-lg) * 2);
+        --radius-4xl: calc(var(--radius-lg) * 3);
+    }
+
+    .dark {
+        --bg: oklch(16.96% 0.0017 17.32);
+        --fg: oklch(99.01% 0.0161 95.22);
+
+        --secondary: oklch(53.75% 0.0078 97.45);
+        --secondary-fg: oklch(95.37% 0.0147 98.29);
+
+        --overlay: oklch(77.21% 0.0128 96.47);
+        --overlay-fg: oklch(99.01% 0.0161 95.22);
+
+        --muted: oklch(77.21% 0.0128 96.47);
+        --muted-fg: oklch(95.37% 0.0147 98.29);
+
+        --border: oklch(84.63% 0.0137 102.05);
+        --input: oklch(84.63% 0.0137 102.05);
+
+        --navbar: oklch(53.75% 0.0078 97.45);
+        --navbar-fg: oklch(99.01% 0.0161 95.22);
+
+        --sidebar: oklch(53.75% 0.0078 97.45);
+        --sidebar-fg: oklch(99.01% 0.0161 95.22);
+    }
+}
+
+@variant dark {
+    &:where(.dark, .dark *) {
+        @slot;
+    }
+    @media (prefers-color-scheme: dark) {
+        &:where(.system, .system *) {
+            @slot;
+        }
+    }
+}
+
+:root {
+    color-scheme: light dark;
+}
+
+.dark {
+    color-scheme: dark;
+}
+
+.light {
+    color-scheme: light;
+}
+
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--border, currentColor);
+    }
+}
+
+@layer base {
+    * {
+        font-feature-settings: "cv11", "ss01";
+        font-variation-settings: "opsz" 850;
+        text-rendering: optimizeLegibility;
+
+        /*
+     * Scrollbar
+     */
+        scrollbar-width: thin;
+        scrollbar-color: var(--border) transparent;
+    }
+
+    body {
+        background-color: var(--bg);
+        color: var(--fg);
+    }
+}

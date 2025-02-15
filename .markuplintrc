@@ -1,0 +1,29 @@
+{
+  "extends": [
+    "markuplint:recommended-react"
+  ],
+  "parser": {
+    ".[jt]sx$": "@markuplint/jsx-parser"
+  },
+  "specs": {
+    ".[jt]sx$": "@markuplint/react-spec"
+  },
+  "rules": {
+
+  },
+  "nodeRules": [
+    {
+      "selector": "head",
+      "rules": {
+        "required-element": false,
+        "permitted-contents": false
+      }
+    },
+    {
+      "selector": "script",
+      "rules": {
+        "required-attr": false,
+      }
+    }
+  ]
+}

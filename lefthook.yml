@@ -1,0 +1,14 @@
+pre-push:
+  jobs:
+    - name: packages audit
+      tags:
+        - frontend
+        - security
+      run: pnpm audit
+
+pre-commit:
+  jobs:
+    - run: pnpm eslint {staged_files} --fix
+      glob: '*.{js,ts,jsx,tsx}'
+    - run: pnpm markuplint {staged_files}
+      glob: '*.{jsx,tsx}'
