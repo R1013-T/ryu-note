@@ -1,6 +1,6 @@
 'use client'
 
-import { IconFolderFill, IconFolderOpen } from 'justd-icons'
+import { IconArrowUpRight, IconBrandJustd, IconFolderFill, IconFolderOpen } from 'justd-icons'
 import {
   Sidebar,
   SidebarContent,
@@ -15,6 +15,8 @@ import {
 
 import { folders } from '../../../constant/folders'
 import { SidebarHeader } from './sidebar-header'
+import { usePathname } from 'next/navigation'
+import { cn } from '~/utils/classes'
 
 export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -33,11 +35,14 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
 }
 
 function SidebarTree({ item, index }: { item: (typeof folders)[number], index: number }) {
+  const pathname = usePathname()
+  const isCurrent = pathname === `/${item.id}`
+
   if (!item.files || item.files.length === 0) {
     return (
       <SidebarItem
-        isCurrent={item.id === 1212}
-        className="pl-[calc(var(--nested-level)*16px)]"
+        isCurrent={isCurrent}
+        className={cn('pl-[calc(var(--nested-level)*16px)]', isCurrent && ' text-accent hover:text-accent!')}
         style={
           {
             '--nested-level': index,
@@ -46,7 +51,11 @@ function SidebarTree({ item, index }: { item: (typeof folders)[number], index: n
         href={item.href ?? `/${item.id}`}
         target={item.href ? '_blank' : undefined}
       >
-        <SidebarLabel>{item.label}</SidebarLabel>
+        <SidebarLabel className='flex items-center gap-1'>
+          <IconBrandJustd />
+          {item.label}
+          {item.href && <IconArrowUpRight />}
+        </SidebarLabel>
       </SidebarItem>
     )
   }

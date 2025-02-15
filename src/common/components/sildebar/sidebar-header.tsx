@@ -75,11 +75,11 @@ export function SidebarHeader() {
                 Contact
               </Menu.Item>
               <Menu.Content>
-                <Menu.Item href="https://github.com/R1013-T" target="_blank">
+                <Menu.Item href="https://x.com/rtjob2023" target="_blank">
                   <IconBrandX />
                   X
                 </Menu.Item>
-                <Menu.Item href="https://x.com/rtjob2023" target="_blank">
+                <Menu.Item href="https://github.com/R1013-T" target="_blank">
                   <IconBrandGithub />
                   GitHub
                 </Menu.Item>

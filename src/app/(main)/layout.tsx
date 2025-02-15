@@ -8,7 +8,7 @@ export default function MainLayout({
 }>) {
   return (
     <SidebarProvider className="[--sidebar-width:19rem]">
-      <AppSidebar closeButton={false} intent="fleet" />
+      <AppSidebar intent="fleet" />
       <SidebarInset>
         {children}
       </SidebarInset>
