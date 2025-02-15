@@ -1,6 +1,6 @@
 /* eslint-disable node/prefer-global/process */
 import type { Metadata } from 'next'
-import { LINESeedJP } from '~/common/fonts'
+import { LINESeedJP } from '~/assets/fonts'
 import { Providers } from '~/common/providers'
 import '~/globals.css'
 

@@ -1,15 +1,10 @@
-import Header from '~/common/components/header/header'
+import { Suspense } from 'react'
+import DetailPage from '~/features/detail/detail-page'
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ slug: string }>
-}) {
-  const slug = (await params).slug
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   return (
-    <div>
-      <Header title={slug} imageUrl="" />
-      {slug}
-    </div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <DetailPage params={params} />
+    </Suspense>
   )
 }
