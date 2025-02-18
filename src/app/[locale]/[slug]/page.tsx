@@ -1,4 +1,3 @@
-/* eslint-disable node/prefer-global/process */
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
 import DetailPage from '~/features/detail/detail-page'
@@ -18,8 +17,8 @@ export async function generateMetadata(
   const imageParams = new URLSearchParams()
   imageParams.set('title', title)
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
-  const imageUrl = `${siteUrl}/api/og?${imageParams.toString()}`
+  // const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
+  const imageUrl = `https://note.ryu1013.com/api/og?${imageParams.toString()}`
 
   return {
     title,
