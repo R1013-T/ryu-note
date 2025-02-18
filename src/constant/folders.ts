@@ -1,4 +1,4 @@
-interface FileTree {
+export interface FileTree {
   id: number | string
   label: {
     ja: string

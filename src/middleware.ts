@@ -4,6 +4,14 @@ import { NextResponse } from 'next/server'
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
+  if (pathname.startsWith('/_next')) {
+    return NextResponse.next()
+  }
+
+  if (pathname.startsWith('/api')) {
+    return NextResponse.next()
+  }
+
   if (
     pathname.endsWith('.svg')
     || pathname.endsWith('.ico')
