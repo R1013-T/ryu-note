@@ -12,20 +12,32 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const imageParams = new URLSearchParams()
   imageParams.set('title', title)
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
+  const imageUrl = `${siteUrl}/api/og?${imageParams.toString()}`
+
   return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
+    metadataBase: new URL(siteUrl),
     title,
     description,
     openGraph: {
-      title,
-      description,
-      images: `/api/og?${imageParams}`,
-      url: `/${locale}/${slug}`,
+      title: description,
+      description: 'RYU NOTE | 学びを共有します',
+      // オブジェクト形式で指定することで詳細情報を付与
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+      url: `${siteUrl}/${locale}/${slug}`,
     },
     twitter: {
+      card: 'summary_large_image',
       title,
       description,
-      images: `/api/og?${imageParams}`,
+      images: [imageUrl],
     },
   } satisfies Metadata
 }
