@@ -4,10 +4,16 @@ import { Suspense } from 'react'
 import DetailPage from '~/features/detail/detail-page'
 import { getTitle } from '~/features/detail/get-title'
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string, slug: string }> }) {
+interface Props {
+  params: Promise<{ locale: string, slug: string }>
+}
+
+export async function generateMetadata(
+  { params }: Props,
+): Promise<Metadata> {
   const { locale, slug } = await params
   const title = getTitle(slug, locale as 'ja' | 'en') ?? ''
-  const description = `RYU NOTE - ${title}`
+  const description = `RYU NOTE | 学びを共有します | ${title}`
 
   const imageParams = new URLSearchParams()
   imageParams.set('title', title)
@@ -16,13 +22,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const imageUrl = `${siteUrl}/api/og?${imageParams.toString()}`
 
   return {
-    metadataBase: new URL(siteUrl),
     title,
     description,
     openGraph: {
-      title: description,
-      description: 'RYU NOTE | 学びを共有します',
-      // オブジェクト形式で指定することで詳細情報を付与
+      title,
+      description,
       images: [
         {
           url: imageUrl,
@@ -39,7 +43,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       description,
       images: [imageUrl],
     },
-  } satisfies Metadata
+  }
 }
 
 export default async function Page({ params }: { params: Promise<{ locale: string, slug: string }> }) {
