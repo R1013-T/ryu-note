@@ -17,7 +17,7 @@ export const contentType = 'image/png'
 export default async function Image({ params }: { params: Promise<{ locale: string, slug: string }> }) {
   const { locale, slug } = await params
 
-  const bgData = await readFile(join(process.cwd(), 'assets', 'open-graph-image01.png'))
+  const bgData = await readFile(join(process.cwd(), 'src', 'assets', 'open-graph-image01.png'))
 
   const bgBase64 = Buffer.from(bgData).toString('base64')
   const bgUrl = `data:image/png;base64,${bgBase64}`
