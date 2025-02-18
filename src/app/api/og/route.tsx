@@ -1,5 +1,5 @@
 /* eslint-disable node/prefer-global/process */
-/* eslint-disable node/prefer-global/buffer */
+
 import type { NextRequest } from 'next/server'
 import { ImageResponse } from 'next/og'
 
@@ -14,6 +14,14 @@ export async function GET(req: NextRequest) {
     new URL(`/open-graph-image0${image ?? 1}.png`, url),
   ).then(res => res.arrayBuffer())
 
+  const data = await backgroundImage
+  const uint8Array = new Uint8Array(data)
+  let binary = ''
+  for (let i = 0; i < uint8Array.length; i++) {
+    binary += String.fromCharCode(uint8Array[i])
+  }
+  const base64 = btoa(binary)
+
   if (title === null) {
     return new ImageResponse(
       (
@@ -22,7 +30,7 @@ export async function GET(req: NextRequest) {
             display: 'flex',
             height: '100%',
             width: '100%',
-            backgroundImage: await backgroundImage.then(data => `url(data:image/png;base64,${Buffer.from(data).toString('base64')})`),
+            backgroundImage: `url(data:image/png;base64,${base64})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
@@ -57,7 +65,7 @@ export async function GET(req: NextRequest) {
           display: 'flex',
           height: '100%',
           width: '100%',
-          backgroundImage: await backgroundImage.then(data => `url(data:image/png;base64,${Buffer.from(data).toString('base64')})`),
+          backgroundImage: `url(data:image/png;base64,${base64})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
