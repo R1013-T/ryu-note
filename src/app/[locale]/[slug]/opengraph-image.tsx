@@ -23,7 +23,7 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
   const bgUrl = `data:image/png;base64,${bgBase64}`
 
   const lineSeedJp = await readFile(
-    join(process.cwd(), 'assets/LINESeedJP_OTF_Bd.woff2'),
+    join(process.cwd(), 'src', 'assets', 'fonts', 'LINESeedJP_OTF_Bd.woff2'),
   )
 
   return new ImageResponse(
