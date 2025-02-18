@@ -17,8 +17,8 @@ export async function generateMetadata(
   const imageParams = new URLSearchParams()
   imageParams.set('title', title)
 
-  // const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
-  const imageUrl = `https://note.ryu1013.com/api/og?${imageParams.toString()}`
+  const siteUrl = 'https://note.ryu1013.com'
+  const imageUrl = `${siteUrl}/api/og?${imageParams.toString()}`
 
   return {
     title,
