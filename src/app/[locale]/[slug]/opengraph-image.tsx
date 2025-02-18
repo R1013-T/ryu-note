@@ -1,10 +1,9 @@
-/* eslint-disable node/prefer-global/buffer */
-/* eslint-disable node/prefer-global/process */
 /* eslint-disable react-refresh/only-export-components */
-import { readFile } from 'node:fs/promises'
-import { join } from 'node:path'
+// import { readFile } from 'node:fs/promises'
+// import { join } from 'node:path'
 import { ImageResponse } from 'next/og'
 
+// Image metadata
 export const alt = 'About Acme'
 export const size = {
   width: 1200,
@@ -14,51 +13,42 @@ export const size = {
 export const contentType = 'image/png'
 
 // Image generation
-export default async function Image({ params }: { params: Promise<{ locale: string, slug: string }> }) {
-  const { locale, slug } = await params
-
-  const bgData = await readFile(join(process.cwd(), 'src', 'assets', 'open-graph-image01.png'))
-
-  const bgBase64 = Buffer.from(bgData).toString('base64')
-  const bgUrl = `data:image/png;base64,${bgBase64}`
-
-  const lineSeedJp = await readFile(
-    join(process.cwd(), 'src', 'assets', 'fonts', 'LINESeedJP_OTF_Bd.woff2'),
-  )
+export default async function Image() {
+  // Font loading, process.cwd() is Next.js project directory
+  // const interSemiBold = await readFile(
+  //   join(process.cwd(), 'assets/Inter-SemiBold.ttf')
+  // )
 
   return new ImageResponse(
     (
       // ImageResponse JSX element
       <div
         style={{
+          fontSize: 128,
+          background: 'white',
           width: '100%',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundImage: `url(${bgUrl})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
         }}
       >
-        <h1 style={{ fontSize: 48, color: '#fff' }}>
-          {locale}
-          {' '}
-          -
-          {slug}
-        </h1>
+        About Acme
       </div>
     ),
+    // ImageResponse options
     {
+      // For convenience, we can re-use the exported opengraph-image
+      // size config to also set the ImageResponse's width and height.
       ...size,
-      fonts: [
-        {
-          name: 'Line Seed JP',
-          data: lineSeedJp,
-          style: 'normal',
-          weight: 700,
-        },
-      ],
+      // fonts: [
+      //   {
+      //     name: 'Inter',
+      //     data: interSemiBold,
+      //     style: 'normal',
+      //     weight: 400,
+      //   },
+      // ],
     },
   )
 }
