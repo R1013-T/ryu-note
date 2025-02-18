@@ -1,12 +1,18 @@
-import Header from '~/common/components/header/header'
+import Image from 'next/image'
+import { getTitle } from './get-title'
 
 export default async function DetailPage({ params }: { params: Promise<{ locale: string, slug: string }> }) {
   const { locale, slug } = await params
+  const title = getTitle(slug, locale as 'ja' | 'en') ?? ''
+
+  const { default: Post } = await import(`../../contents/${slug}/${locale}.mdx`)
+
   return (
-    <article>
-      <Header title={slug} />
-      <p>{locale}</p>
-      <p>{slug}</p>
-    </article>
+    <div className="space-y-4">
+      <Image src={`/api/og?title=${title}`} width={1200} height={630} alt={slug} />
+      <Post />
+    </div>
   )
 }
+
+export const dynamicParams = false

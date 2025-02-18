@@ -45,7 +45,7 @@ export async function generateMetadata(
   }
 }
 
-export default async function Page({ params }: { params: Promise<{ locale: string, slug: string }> }) {
+export default async function Detail({ params }: { params: Promise<{ locale: string, slug: string }> }) {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <DetailPage params={params} />
