@@ -11,7 +11,7 @@ export async function GET(req: NextRequest) {
   const image = searchParams.get('image')
   const url = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
   const backgroundImage = fetch(
-    new URL(`/open-graph-image0${image}.png`, url),
+    new URL(`/open-graph-image0${image ?? 1}.png`, url),
   ).then(res => res.arrayBuffer())
 
   if (title === null) {

@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       title,
       description,
       images: `/api/og?${imageParams}`,
-      url: new URL(`/${locale}/${slug}`, process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
+      url: `/${locale}/${slug}`,
     },
     twitter: {
       title,
