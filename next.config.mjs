@@ -10,7 +10,6 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   experimental: {
     ppr: true,
-    dynamicIO: true,
     reactCompiler: true,
   },
 }
