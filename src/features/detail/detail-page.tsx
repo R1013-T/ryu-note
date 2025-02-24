@@ -14,7 +14,7 @@ export default async function DetailPage({ params }: { params: Promise<{ locale:
   return (
     <article>
       <Header title={title} />
-      <section className="prose m-2 my-18 w-full md:w-2xl mx-2 md:mx-auto">
+      <section className="prose break-words my-18 w-full px-4 md:w-2xl md:mx-auto">
         <Post />
       </section>
     </article>

@@ -181,7 +181,7 @@ function CloseIndicator({ className, ...props }: CloseButtonIndicatorProps) {
           slot="close"
           className={closeIndicator({ className })}
         >
-          <IconX className="size-4" />
+          <IconX className="size-4 mt-1 sm:mt-3" />
         </ButtonPrimitive>
       )
     : null
