@@ -1,6 +1,6 @@
 'use client'
 
-import { IconArrowUpRight, IconFolderFill, IconFolderOpen, IconLink } from 'justd-icons'
+import { IconArrowUpRight, IconFolderFill, IconFolderOpen } from 'justd-icons'
 import { usePathname } from 'next/navigation'
 
 import {
@@ -13,7 +13,6 @@ import {
   SidebarItem,
   SidebarLabel,
   SidebarRail,
-  Tooltip,
 } from 'ui'
 import { cn } from '~/utils/classes'
 import { folders } from '../../../constant/folders'
