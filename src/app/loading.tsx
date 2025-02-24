@@ -1,5 +1,5 @@
 export default function Loading() {
   return (
-    <div>Loading...</div>
+    <div className="grid place-items-center h-screen">Loading...</div>
   )
 }

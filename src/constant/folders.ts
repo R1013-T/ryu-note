@@ -33,13 +33,28 @@ export const folders: FileTree[] = [
             ],
           },
           {
+            id: 'vitest-browser-mode',
+            label: {
+              ja: 'Vitest Browser Modeを活用してブラウザをモックするコードを削除した話',
+              en: 'Story of removing code that mocks the browser by utilizing Vitest Browser Mode',
+            },
+            href: 'https://developers.prtimes.jp/2025/02/21/vitest-browser-mode/',
+          },
+          {
             id: 'better-auth',
             label: {
-              ja: 'Better AuthでOAuth入門',
-              en: 'Introduction to OAuth with Better Auth',
+              ja: '[パスキー認証] Better Auth',
+              en: '[Passkey Auth] Better Auth',
             },
-            files: [
-            ],
+            href: 'https://zenn.dev/r1013t/articles/bcfeb72a22f765',
+          },
+          {
+            id: 'github-auth',
+            label: {
+              ja: '[GitHub認証] Next.js + Lucia Auth + Prisma + Supabase',
+              en: '[GitHub Auth] Next.js + Lucia Auth + Prisma + Supabase',
+            },
+            href: 'https://zenn.dev/r1013t/articles/next-lucia-prisma',
           },
         ],
       },
@@ -102,22 +117,6 @@ export const folders: FileTree[] = [
         },
         files: [
         ],
-      },
-    ],
-  },
-  {
-    id: 'utils',
-    label: {
-      ja: 'ユーティリティ',
-      en: 'Utilities',
-    },
-    files: [
-      {
-        id: 'use-local-storage.ts',
-        label: {
-          ja: 'useLocalStorage.ts',
-          en: 'useLocalStorage.ts',
-        },
       },
     ],
   },
