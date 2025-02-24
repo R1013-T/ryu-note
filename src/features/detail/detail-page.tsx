@@ -9,12 +9,11 @@ export default async function DetailPage({ params }: { params: Promise<{ locale:
   const { default: Post } = await import(`../../contents/${slug}/${locale}.mdx`)
 
   return (
-    <div>
+    <article>
       <Header title={title} />
-      <Image src={`/api/og?title=${title}`} width={1200} height={630} alt={slug} />
-      <Post />
-    </div>
+      <section className="prose m-2 my-18 w-full md:w-2xl mx-2 md:mx-auto">
+        <Post />
+      </section>
+    </article>
   )
 }
-
-export const dynamicParams = false

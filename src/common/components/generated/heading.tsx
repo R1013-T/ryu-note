@@ -1,6 +1,6 @@
 import { tv } from 'tailwind-variants'
 
-const headingStyles = tv({
+export const headingStyles = tv({
   base: 'font-sans text-fg tracking-tight',
   variants: {
     level: {

@@ -8,9 +8,9 @@ interface Props {
 
 export default function Header({ title = 'RYU Note', imageUrl }: Props) {
   return (
-    <header className="fixed top-0 right-0 z-10 flex h-12 w-full md:w-[calc(100%-303px)] items-center justify-between border-b bg-sidebar/10 backdrop-blur-sm px-4">
-      <SidebarTrigger className="-ml-2 md:hidden" />
-      <div className="flex items-center gap-2">
+    <header className="fixed top-0 right-0 z-10 h-12 w-full md:w-[calc(100%-303px)] border-b bg-sidebar/10 backdrop-blur-sm">
+      <div className="flex items-center h-12 gap-2 max-w-2xl mx-auto">
+        <SidebarTrigger className="md:hidden" />
         {imageUrl && <Image src={imageUrl} alt="logo" width={24} height={24} />}
         <h1 className="font-mono text-muted-fg text-sm">{title}</h1>
       </div>

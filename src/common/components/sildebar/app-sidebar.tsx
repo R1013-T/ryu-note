@@ -54,8 +54,8 @@ function SidebarTree({ item, index }: { item: (typeof folders)[number], index: n
         target={item.href ? '_blank' : undefined}
       >
         <SidebarLabel className="flex items-center gap-1">
-          <span className="truncate md:hidden">{item.label[lang as keyof typeof item.label]}</span>
-          <Tooltip delay={0}>
+          <span className="truncate">{item.label[lang as keyof typeof item.label]}</span>
+          {/* <Tooltip delay={0}>
             <Tooltip.Trigger
               className="truncate hidden md:block"
             >
@@ -70,7 +70,7 @@ function SidebarTree({ item, index }: { item: (typeof folders)[number], index: n
                 </a>
               )}
             </Tooltip.Content>
-          </Tooltip>
+          </Tooltip> */}
           {item.href && <IconArrowUpRight />}
         </SidebarLabel>
       </SidebarItem>
