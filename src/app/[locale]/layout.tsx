@@ -7,8 +7,8 @@ export default function MainLayout({
   children: React.ReactNode
 }>) {
   return (
-    <SidebarProvider className="[--sidebar-width:19rem]">
-      <AppSidebar intent="fleet" />
+    <SidebarProvider>
+      <AppSidebar intent="float" />
       <SidebarInset>
         {children}
       </SidebarInset>

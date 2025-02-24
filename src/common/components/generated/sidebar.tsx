@@ -12,7 +12,7 @@ import type {
   SeparatorProps as SidebarSeparatorProps,
 } from 'react-aria-components'
 
-import { IconChevronLgDown, IconHamburger, IconSidebarFill } from 'justd-icons'
+import { IconChevronLgDown, IconSidebarFill } from 'justd-icons'
 import { createContext, use, useCallback, useEffect, useMemo, useState } from 'react'
 import {
   composeRenderProps,
@@ -29,7 +29,6 @@ import {
 import { twJoin } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 import { cn } from '~/utils/classes'
-import { useMediaQuery } from '~/utils/use-media-query'
 import { Badge } from './badge'
 import { Button } from './button'
 import { composeTailwindRenderProps } from './primitive'
@@ -76,7 +75,8 @@ function SidebarProvider({
   ref,
   ...props
 }: SidebarProviderProps) {
-  const isMobile = useMediaQuery('(max-width: 767px)')
+  // const isMobile = useMediaQuery('(max-width: 767px)')
+  const isMobile = true
   const [openMobile, setOpenMobile] = useState(false)
 
   const [internalOpenState, setInternalOpenState] = useState(defaultOpen)
@@ -673,8 +673,8 @@ function SidebarTrigger({ onPress, children, ...props }: React.ComponentProps<ty
     >
       {children || (
         <>
-          <IconSidebarFill className="hidden md:inline" />
-          <IconHamburger className="inline md:hidden" />
+          <IconSidebarFill />
+          {/* <IconHamburger className="inline md:hidden" /> */}
           <span className="sr-only">Toggle Sidebar</span>
         </>
       )}

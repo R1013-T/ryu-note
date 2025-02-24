@@ -20,7 +20,7 @@ import { SidebarHeader } from './sidebar-header'
 
 export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar {...props} className="border-r">
+    <Sidebar {...props}>
       <SidebarHeader />
       <SidebarContent className="pb-10">
         <SidebarDisclosureGroup className="gap-y-0.5">
@@ -54,22 +54,6 @@ function SidebarTree({ item, index }: { item: (typeof folders)[number], index: n
       >
         <SidebarLabel className="flex items-center gap-1">
           <span className="truncate">{item.label[lang as keyof typeof item.label]}</span>
-          {/* <Tooltip delay={0}>
-            <Tooltip.Trigger
-              className="truncate hidden md:block"
-            >
-              {item.label[lang as keyof typeof item.label]}
-            </Tooltip.Trigger>
-            <Tooltip.Content placement="right">
-              {item.label[lang as keyof typeof item.label]}
-              {item.href && (
-                <a className="flex items-center gap-1 text-xs text-fg/80" href={item.href} target="_blank">
-                  <IconLink />
-                  {item.href}
-                </a>
-              )}
-            </Tooltip.Content>
-          </Tooltip> */}
           {item.href && <IconArrowUpRight />}
         </SidebarLabel>
       </SidebarItem>

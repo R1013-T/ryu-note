@@ -5,9 +5,9 @@ import {
   IconBulletFill,
   IconCirclePlaceholderDashedFill,
   IconCircleStop,
-  IconDotsVertical,
   IconMail,
   IconPerson,
+  IconSettings,
   IconTranslate,
 } from 'justd-icons'
 import { useTheme } from 'next-themes'
@@ -30,10 +30,10 @@ export function SidebarHeader() {
           Note
         </SidebarLabel>
       </Link>
-      <div className="-mr-2 flex items-center gap-x-0.5 text-muted-fg **:[button]:text-muted-fg **:[button]:*:data-[slot=icon]:size-3.5 **:[button]:data-hovered:text-fg">
+      <div className="-mr-2 flex items-center gap-x-0.5 text-muted-fg **:[button]:text-fg **:[button]:*:data-[slot=icon]:size-5">
         <Menu>
-          <Button className="size-7 mr-8 md:mr-0" size="square-petite" appearance="plain" aria-label="Options">
-            <IconDotsVertical />
+          <Button className="size-7 mr-8" size="square-petite" appearance="plain" aria-label="Options">
+            <IconSettings />
           </Button>
           <Menu.Content className="sm:min-w-56">
             <Menu.Item href="https://ryu1013.com/" target="_blank">
